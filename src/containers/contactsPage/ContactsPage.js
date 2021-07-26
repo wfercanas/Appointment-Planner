@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
+import { ContactForm } from '../../components/contactForm/ContactForm';
+import { TileList } from '../../components/tileList/TileList';
+
 export const ContactsPage = ({ contacts, createContact }) => {
   const [currentName, setCurrentName] = useState('');
   const [currentPhone, setCurrentPhone] = useState('');
@@ -39,38 +42,14 @@ export const ContactsPage = ({ contacts, createContact }) => {
     <div>
       <section>
         <h2>Add Contact</h2>
-        <form onSubmit={handleSubmit}>
-          <p style={{ color: 'red', fontSize: 10 }}>
-            {duplicatedName ? 'This name already exists as contact' : ''}
-          </p>
-          <input
-            type="text"
-            name="currentName"
-            placeholder="Insert new contact name"
-            value={currentName}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="tel"
-            name="currentPhone"
-            placeholder="Insert new contact cellphone number (10 digits)"
-            maxLength="10"
-            pattern="[0-9]{10}"
-            value={currentPhone}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            name="currentEmail"
-            placeholder="Insert new contact email"
-            value={currentEmail}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit">Create contact</button>
-        </form>
+        <ContactForm
+          name={currentName}
+          phone={currentPhone}
+          email={currentEmail}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          duplicatedName={duplicatedName}
+        />
       </section>
       <hr />
       <section>
