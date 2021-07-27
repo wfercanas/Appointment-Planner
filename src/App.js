@@ -53,6 +53,7 @@ function App() {
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             <AppointmentsPage
+              contacts={contacts}
               appointments={appointments}
               createAppointment={createAppointment}
             />
