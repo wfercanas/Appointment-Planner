@@ -22,6 +22,7 @@ export const AppointmentForm = ({
       <input
         name="title"
         type="text"
+        placeholder="Create appointment title"
         value={title}
         onChange={handleChange}
         required
